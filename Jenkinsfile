@@ -5,34 +5,23 @@ pipeline {
     stages {
         stage('Fetch and Clean') {
             steps {
-                 bat """
-                      cd maven-app
-                      mvn clean
-                  """.stripIndent().trim()
+                 bat "mvn clean"
             }
         }
         stage('Test') {
             steps {
-                bat """
-                    cd maven-app
-                    mvn test
-                """.stripIndent().trim()
+                bat "mvn test"
             }
         }
         stage('Package maven job') {
             steps {
-                bat """
-                    cd maven-app
-                    mvn package
-                """.stripIndent().trim()
+                bat "mvn package"
             }
         }
         stage('Run maven job') {
             steps {
-                bat """
-                    cd maven-app
-                    java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App
-                """.stripIndent().trim()
+                bat "java -cp target/my-app-1.0-SNAPSHOT.jar com.mycompany.app.App"
+                    
             }
         }
 
