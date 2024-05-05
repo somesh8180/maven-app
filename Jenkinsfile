@@ -5,7 +5,6 @@ pipeline {
     stages {
         stage('Fetch and Clean') {
             steps {
-                bat "rmdir /s /q maven-app"
                  bat """
                       cd maven-app
                       mvn clean
