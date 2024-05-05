@@ -20,7 +20,7 @@ pipeline {
                 """.stripIndent().trim()
             }
         }
-        stage('Deploy') {
+        stage('Package maven job') {
             steps {
                 bat """
                     cd maven-app
@@ -28,7 +28,7 @@ pipeline {
                 """.stripIndent().trim()
             }
         }
-        stage('Deploy') {
+        stage('Run maven job') {
             steps {
                 bat """
                     cd maven-app
